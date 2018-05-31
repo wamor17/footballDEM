@@ -2,6 +2,15 @@
 CREATE DATABASE footballDEM;
 USE footballDEM;
 
+CREATE TABLE Usuario(
+	ID_Usuario INT AUTO_INCREMENT NOT NULL,
+    Usuario VARCHAR(25),
+    Contraseña VARCHAR(25),
+    Tipo VARCHAR(25),
+    
+    PRIMARY KEY(ID_Usuario)
+) ENGINE = INNODB;
+
 CREATE TABLE Alumno(
 	ID_Alumno INT AUTO_INCREMENT NOT NULL,
     Nombre VARCHAR(50),
