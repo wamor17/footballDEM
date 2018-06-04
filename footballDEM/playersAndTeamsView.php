@@ -19,7 +19,14 @@
         <div class="col-md-1"></div>
         <div class="col-md-10 panel">
             <h3> Lista de equipos con sus respectivos integrantes </h3>
-            <button type="button" class="btn btn-primary btnAlign"> Agregar equipo </button><br><br>
+            <div class="row">
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary txtLeft"> Agregar equipo </button><br><br>    
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default txtRight"> Generar jornadas </button><br><br>
+                </div>
+            </div>
 
             <?php
                 $num = 1;

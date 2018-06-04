@@ -4,6 +4,7 @@ function hello(data1, data2){
 }
 
 function clearBoxes(){
+//    loadData();
     var usr = document.getElementById("txtUser").value = "";
     var pwd = document.getElementById("txtPassword").value = "";
 }
