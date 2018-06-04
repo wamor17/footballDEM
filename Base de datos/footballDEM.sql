@@ -1,4 +1,3 @@
-
 CREATE DATABASE footballDEM;
 USE footballDEM;
 
@@ -61,8 +60,27 @@ CREATE TABLE Arbitro(
 		REFERENCES Alumno(ID_Alumno)
 ) ENGINE = INNODB;
 
+CREATE TABLE Semestre(
+	ID_Semestre INT AUTO_INCREMENT NOT NULL,
+    Semestre VARCHAR(20),
+
+    PRIMARY KEY (ID_Semestre)
+) ENGINE = INNODB;
+
+CREATE TABLE Jornada(
+	ID_Jornada INT AUTO_INCREMENT NOT NULL,
+    ID_Semestre INT NOT NULL,
+    Num_Jornada TINYINT,
+    Fecha DATE,
+
+    PRIMARY KEY (ID_Jornada),
+    FOREIGN KEY (ID_Semestre)
+		REFERENCES Semestre(ID_Semestre)
+) ENGINE = INNODB;
+
 CREATE TABLE Partido(
 	ID_Partido INT AUTO_INCREMENT NOT NULL,
+    ID_Jornada INT NOT NULL,
     ID_Arbitro INT NOT NULL,
 	Equipo_1 VARCHAR(30),
     Goles_E1 TINYINT,
@@ -72,27 +90,8 @@ CREATE TABLE Partido(
     Hora VARCHAR(10),
 
     PRIMARY KEY (ID_Partido),
+	FOREIGN KEY (ID_Jornada)
+		REFERENCES Jornada(ID_Jornada),
 	FOREIGN KEY (ID_Arbitro)
 		REFERENCES Arbitro(ID_Arbitro)
-) ENGINE = INNODB;
-
-CREATE TABLE Jornada(
-	ID_Jornada INT AUTO_INCREMENT NOT NULL,
-	ID_Partido INT NOT NULL,
-    Num_Jornada TINYINT,
-    Fecha DATE,
-
-    PRIMARY KEY (ID_Jornada),
-    FOREIGN KEY (ID_Partido)
-		REFERENCES Partido(ID_Partido)
-) ENGINE = INNODB;
-
-CREATE TABLE Semestre(
-	ID_Semestre INT AUTO_INCREMENT NOT NULL,
-	ID_Jornada INT NOT NULL,
-    Semestre VARCHAR(20),
-
-    PRIMARY KEY (ID_Semestre),
-    FOREIGN KEY (ID_Jornada)
-		REFERENCES Jornada(ID_Jornada)
 ) ENGINE = INNODB;

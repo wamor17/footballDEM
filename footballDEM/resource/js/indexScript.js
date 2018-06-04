@@ -45,6 +45,63 @@ function verifyDataUser(){
     });
 }
 
+function selectJornada(numJornada){
+    var gamesCards = document.getElementById("gamesResultCard");
+    var jornada = document.getElementById("jornada").innerHTML = "<h3> Resultados de la Jornada "+numJornada+"</h3>";
+
+    $.post('Controller/getGamesByJornadas.php', { NumJornada: numJornada }, function(data) {
+        dataReceive = JSON.parse(data);
+
+        for( i=0; i<=dataReceive.length; i++ ){
+            var team1 = document.getElementById("E1_"+i+"_left").innerHTML = dataReceive[i].Equipo_1;
+            var goals = document.getElementById("goles_"+i).innerHTML = dataReceive[i].Goles_E1 +" - "+ dataReceive[i].Goles_E2;
+            var team1 = document.getElementById("E2_"+i+"_right").innerHTML = dataReceive[i].Equipo_2;
+            var hourGame = document.getElementById("hourGame"+i).innerHTML = "Hora: "+dataReceive[i].Hora;
+        }
+                
+//        alert("1. "+dataReceive[0].Equipo_1+"\n"+"2. "+dataReceive[1].Equipo_1);
+    });
+}
+
+function loadData(){
+//  CARGANDO AL INICIAR LA PAGINA LA ULTIMA JORNADA JUGADA
+    $.post('Controller/loadData.php', { }, function(data) {
+        dataReceive = JSON.parse(data);
+        selectJornada(dataReceive[0].Num_Jornada);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // PROTOTIPO DE UNA PETICION AJAX
 function getData(){
     $.ajax({

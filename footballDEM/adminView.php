@@ -20,39 +20,73 @@
         <title> Administraci&oacute;n del torneo </title>
         <?php include "Templates/metaInformation.php" ?>
     </head>
-    <body>
-        <div class="row content">
+    <body onload="loadData()">
+        <?php
+            $getChamp = "SELECT *FROM Semestre;";
+            $dataChampionship = $connection->query($getChamp);
+
+            if( $dataChampionship->num_rows > 0 ){
+                $Semester = $dataChampionship->fetch_assoc();
+            }
+        ?>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class='col-md-10'> <h1> Semestre <?php echo $Semester["Semestre"] ?> </h1> </div>"
+            <div class="col-md-1"></div>
+        </div>
+
+<!--content-->
+        <div class="row">
         <div class="col-md-1 col-xs-1"></div>
         <div class="col-md-5">
-            <h2> Resultados Jornada 7 </h2>
                 <?php
-                    $getPartidos = "SELECT *FROM Partido;";
+                    $getJornadas = "SELECT *FROM Jornada ORDER BY ID_Jornada ASC";
+                    $dataJornadas = $connection->query($getJornadas);
+
+                    echo "<p id='jornada'></p>
+                          <div class='dropdown'>
+                            <button class='btn btn-default dropdown-toggle' type='button' data-toggle='dropdown'>
+                                Jornadas
+                            <span class='caret'></span></button>
+                            <ul class='dropdown-menu'>";
+                                if( $dataJornadas->num_rows > 0 ){
+                                    while( $Jornadas = $dataJornadas->fetch_assoc() ){
+                                        echo "<li id='j".$Jornadas["Num_Jornada"]."' onclick='selectJornada(".$Jornadas["Num_Jornada"].")'><a href='#'> Jornada ".$Jornadas["Num_Jornada"]." </a></li>";
+                                    }
+                                }
+                    echo    "</ul>
+                        </div>
+                        <br>
+                        ";
+                    
+                    $getPartidos = "SELECT *FROM Partido LIMIT 4;";
                     $Partidos = $connection->query($getPartidos);
 
                     if( $Partidos->num_rows > 0 ){
-                        $num = 1;
+                        $num = 0;
                         while( $Resultados = $Partidos->fetch_assoc() ){
                             echo " <div class='panel panel-default'>
                                         <div class='panel-body panelBody'>";
                                         echo" <div class='col-md-1'> </div> ";
 
                                         echo" <div class='col-md-4 col-xs-5 col-sm-5'> ";
-                                            echo" <div class='alert alert-success teamSize' id='E1_".$num."_left'>". $Resultados["Equipo_1"] ."</div>";
+                                            echo" <div class='alert alert-success teamSize' id='E1_".$num."_left'> </div>";
                                         echo" </div> ";
 
                                         echo" <div class='col-md-2 col-xs-2 col-sm-2'>";
-                                            echo" <h4 id='goles_".$num."' class='golesSize'><strong>".$Resultados["Goles_E1"]." - ". $Resultados["Goles_E2"]."</strong></h4> ";
+                                            echo" <h4 id='goles_".$num."' class='golesSize'><strong> </strong></h4> ";
                                         echo" </div> ";
 
                                         echo" <div class='col-md-4 col-xs-4 col-sm-4'>
-                                                <div class='alert alert-success  teamSize' id='E2_".$num."_right'>". $Resultados["Equipo_2"] ." </div> ";
+                                                <div class='alert alert-success  teamSize' id='E2_".$num."_right'> </div> ";
                                         echo" </div> ";
 
                                         echo "<div class='col-md-1'>
                                                 <button type='button' class='btn btn-default' data-toggle='modal' data-target='#modalModifyGame' onclick='loadDataToModal($num)'> <span class='glyphicon glyphicon-pencil'> </span> </button>
                                             </div>";
                                     echo "</div>";
-                                    echo "<div class='panel-footer panelFooter'> Hora: ".$Resultados["Hora"]."</div>";
+                                    echo "<div id='hourGame".$num."' class='panel-footer panelFooter'> </div>";
                             echo "</div>";
                             $num++;
                         }
@@ -101,9 +135,42 @@
                     </table>
                 </div>
             </div>
+
+            <h2> Tabla de goleo </h2>
+            <div class="panel panel-default">
+                <div class="panel panel-body">
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <th class='txtCenter'> Nombre </th>
+                            <th> Equipo </th>
+                            <th class='txtCenter'> Goles </th>
+                        </tr>
+
+                        <?php
+                            $query = "SELECT Alumno.Nombre AS NameAlumno, Apellidos, Equipo.Nombre AS NameTeam, Jugador.Goles_Marcados FROM Alumno INNER JOIN Jugador ON Jugador.ID_Alumno = Alumno.ID_Alumno INNER JOIN Equipo ON Jugador.ID_Equipo = Equipo.ID_Equipo ORDER BY Goles_Marcados DESC LIMIT 5;";
+                            $data = $connection->query($query);
+
+                            if( $data->num_rows > 0 ){
+                                $npos = 1;
+                                while( $goleador = $data->fetch_assoc() ){
+                                    echo "<tr>";
+                                        echo "<td>". $goleador["NameAlumno"]." ". $goleador["Apellidos"]."</td>";
+                                        echo "<td>". $goleador["NameTeam"] ."</td>";
+                                        echo "<td class='txtCenter'>". $goleador["Goles_Marcados"] ."</td>";
+                                    echo "</tr>";
+                                    $npos++;
+                                }
+                            }
+                            $connection->close();
+                        ?>
+                    </table>
+                </div>
+            </div>
+
         </div>
         <div class="col-md-1 col-xs-1"></div>
     </div>
+    <br><br>
 
     <div id="modalModifyGame" class="modal fade" role="dialog">
         <div class="modal-dialog modal-md">
@@ -138,7 +205,7 @@
                     </div>
                     <div class='panel-footer panelFooterModal'>
                         <input type="submit" class="btn btn-primary" id="btnNewStudent" value="Guardar">
-                        <input type="submit" class="btn btn-default" id="btnCancel" value="Cancelar" data-dismiss="modal">                        </div>
+                        <input type="submit" class="btn btn-default" id="btnCancel" value="Cancelar" data-dismiss="modal">
                     </div>
                 </div>
             </div>
