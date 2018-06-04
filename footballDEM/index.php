@@ -144,8 +144,6 @@
         <div class="col-md-1 col-xs-1"></div>
     </div>
 
-
-
         <!-- MODAL QUE MUESTRA EL FORMULARIO DE LOGIN PARA LOS DIFERENTES USUARIOS -->
         <div id="modalLogIn" class="modal fade" role="dialog">
             <div class="modal-dialog modal-sm">

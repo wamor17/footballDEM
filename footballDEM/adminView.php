@@ -32,7 +32,7 @@
 
         <div class="row">
             <div class="col-md-1"></div>
-            <div class='col-md-10'> <h1> Semestre <?php echo $Semester["Semestre"] ?> </h1> </div>"
+            <div class='col-md-10 txtCenter'> <h1> Torneo de f&uacute;tbol del Semestre <?php echo $Semester["Semestre"] ?> </h1> </div>"
             <div class="col-md-1"></div>
         </div>
 
@@ -93,6 +93,8 @@
                     }
                 ?>
         </div>
+        
+        <br><br>
         <div class="col-md-5">
             <h2> Tabla general </h2>
             <div class="panel panel-default">
@@ -182,24 +184,22 @@
                     </div>
                     <div class='panel-body panelBody panelPaddingBody'>
                         <div class="row">
-                            <div class='col-md-3 col-xs-3'>
-                                <div class="alert alert-success teamSize" id="e1"></div>
+                            <div class='col-md-3'>
+                                <div class="alert alert-success teamSize teamModal1" id="e1"></div>
                             </div>
 
-                            <div class="col-md-8">
-                                <div class="col-md-5 col-xs-5">
-                                    <input type="text" id="e1Goals" class="form-control">
-                                </div>
-
-                                <div class="col-md-2 col-xs-2"> _ </div>
-
-                                <div class="col-md-5 col-xs-5">
+                            <div class="col-md-6 goalsModal">
+                                <div class="col-md-4">
+                                    <br><input type="text" id="e1Goals" class="form-control">
+                                </div> <br>
+                                <div class="col-md-2"> _ </div>
+                                <div class="col-md-4">
                                     <input type="text" id="e2Goals" class="form-control">
                                 </div>
                             </div>
 
-                            <div class="col-md-3 col-xs-3">
-                                <div class="alert alert-success teamSize" id="e2"></div>
+                            <div class="col-md-3">
+                                <div class="alert alert-success teamSize teamModal2" id="e2"></div>
                             </div>
                         </div>
                     </div>
