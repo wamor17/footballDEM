@@ -10,53 +10,38 @@
     <?php
         include "Model/connectionModel.php";
         include "Templates/adminMenuBar.php";
-    ?>
-
-    <div class="row teams">
-        <div class="col-md-1"></div>
-        <div class="col-md-7">
-            <h3> Lista de alumnos que se registraron en el torneo </h3>
-        </div>
-        <div class="col-md-1">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalInsertStudent"> Nuevo alumno </button>
-        </div>
-        <div class="col-md-1">
-            <button type="button" class="btn btn-default" style="margin-left: 15px;"> Generar reporte </button>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-
-    <?php 
+        
         $getStudents = "SELECT *FROM Alumno;";
         $data = $connection->query($getStudents);
     ?>
 
-    <div class="row">
+    <div class="row teams">
         <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div class='panel panel'>
-                <div class='panel-body'>
-                    <?php
-                        echo "<table class='table table-striped table-hover'>
-                                <tr>
-                                    <th> Nombre </th>
-                                    <th> NUA </th>
-                                    <th> Edad </th>
-                                    <th> Carrera </th>
-                                </tr>";
-                        $numStudent=1;
-                        while( $Students = $data->fetch_assoc() ){
-                            echo "<tr>
-                                    <td>". $numStudent .". ". $Students['Nombre']." ".$Students['Apellidos'] ."</td>
-                                    <td>". $Students['NUA'] ."</td>
-                                    <td>". $Students['Edad'] ."</td>
-                                    <td>". $Students['Carrera'] ."</td>
-                                </tr>";
-                            $numStudent++;
-                        }
-                    ?>
-                </div>
-            </div>
+        <div class="col-md-10 panel">
+            <h3> Lista de alumnos que se registraron en el torneo </h3>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalInsertStudent"> Nuevo alumno </button>
+            <button type="button" class="btn btn-default" style="margin-left: 15px;"> Generar reporte </button><br><br>
+
+            <?php
+                echo "<table class='table table-striped table-hover'>
+                        <tr>
+                            <th> Nombre </th>
+                            <th> NUA </th>
+                            <th> Edad </th>
+                            <th> Carrera </th>
+                        </tr>";
+                $numStudent=1;
+                while( $Students = $data->fetch_assoc() ){
+                    echo "<tr>
+                            <td>". $numStudent .". ". $Students['Nombre']." ".$Students['Apellidos'] ."</td>
+                            <td>". $Students['NUA'] ."</td>
+                            <td>". $Students['Edad'] ." años </td>
+                            <td>". $Students['Carrera'] ."</td>
+                        </tr>";
+                    $numStudent++;
+                }
+                echo "</table><br><br>";
+            ?>
         </div>
         <div class="col-md-1"></div>
     </div>
