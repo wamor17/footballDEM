@@ -1,0 +1,21 @@
+
+.alert{
+    padding: 5px !important;
+    padding-left: 20px !important;
+}
+
+.colorSelectedTeam{
+    margin-left: 10px;
+    margin-top: 25px;
+    width: 30px;
+    height: 30px;
+    border: 0.8px solid rgba(20,20,20,0.2);
+    border-radius: 100%;
+    background-color: white;
+}
+
+.imgDangerDelete{
+    width: 45%;
+    margin-left: 27%;
+    margin-bottom: 10%;
+}
