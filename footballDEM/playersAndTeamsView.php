@@ -25,7 +25,7 @@
                     <button type="button" class="btn btn-default txtRight" style="margin-left: 15px;"> Generar jornadas </button><br><br>
                 </div>
                 <div class="col-md-8">
-                    <div class="alert alert-info alert-dismissible alertSize">
+                    <div class="alert alert-info alert-dismissible alertSize alertTeams">
                         Recargue la p&aacute;gina para ver los cambios
                     </div>                
                 </div>

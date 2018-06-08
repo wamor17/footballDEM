@@ -2,6 +2,7 @@
 <!-- ESTILOS Y SCRIPTS MANUALES-->
 <link rel="stylesheet" href="resource/css/indexStyle.css">
 <link rel="stylesheet" href="resource/css/teamsStyle.css">
+<link rel="stylesheet" href="resource/css/studentStyle.css">
 <script src="resource/js/indexScript.js"></script>
 <script src="resource/js/CRUDScript.js"></script>
 <script src="resource/js/teamsScript.js"></script>
