@@ -20,7 +20,7 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Men&uacute;
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="adminView.php"> Torneos </a></li>
+                                <li><a href="tournamentsView.php"> Torneos </a></li>
                                 <li><a href="playersAndTeamsView.php"> Equipos </a></li>
                                 <li><a href="studentsManagmentView.php"> Jugadores </a></li>
                                 <li><a href="adminView.php"> Jornadas y resultados </a></li>
