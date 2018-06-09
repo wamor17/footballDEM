@@ -7,6 +7,10 @@ body{
     background-color: #f5f5f5 !important;
 }
 
+.contentIndex{
+    margin-bottom: 6%;
+}
+
 .navbarColor{
     background: linear-gradient(rgb(23, 77, 135) 0%, rgb(14, 52, 91) 77%, rgb(14, 52, 91) 100%);
 }

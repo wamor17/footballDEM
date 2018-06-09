@@ -4,7 +4,7 @@ USE footballDEM;
 CREATE TABLE Usuario(
 	ID_Usuario INT AUTO_INCREMENT NOT NULL,
     Usuario VARCHAR(25),
-    Contraseña VARCHAR(25),
+    Pass VARCHAR(25),
     Tipo VARCHAR(25),
     
     PRIMARY KEY(ID_Usuario)
@@ -24,7 +24,7 @@ CREATE TABLE Alumno(
 CREATE TABLE Equipo(
 	ID_Equipo INT AUTO_INCREMENT NOT NULL,
     Nombre VARCHAR(50),
-    Color_Uniforme VARCHAR(15),
+    Color_Uniforme VARCHAR(50),
     PJ TINYINT,
     PG TINYINT,
     PE TINYINT,
