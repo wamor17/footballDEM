@@ -204,22 +204,21 @@ INSERT INTO Alumno(Nombre, Apellidos, NUA, Edad, Carrera) VALUES
 
 #VALORES PARA LA TABLA 'Equipo'
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Ingeniebrios','Blanco',7,6,0,1,10,0,10,18);
+('Ingeniebrios','white',7,6,0,1,10,0,10,18);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
 ('Niupi','Azul',7,7,0,0,0,10,-10,21);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Un equipo no tiene nombre','Rojo',7,2,0,5,0,5,0,6);
+('Un equipo no tiene nombre','red',7,2,0,5,0,5,0,6);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Abejas Sport','Naranja',7,1,1,5,3,5,-2,5);
+('Abejas Sport','orange',7,1,1,5,3,5,-2,5);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Campesinos','Verde',7,4,0,3,5,3,2,12);
+('Campesinos','green',7,4,0,3,5,3,2,12);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Maluma Babys','Negro',7,1,0,6,0,20,-20,3);
+('Maluma Babys','black',7,1,0,6,0,20,-20,3);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('El Valler','Amarillo',7,1,2,4,0,5,0,6);
+('El Valler','yellow',7,1,2,4,0,5,0,6);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Dream team','Gris',7,4,1,2,5,0,0,13);
-
+('Dream team','gray',7,4,1,2,5,0,0,13);
 
 #VALORES PARA LA TABLA 'Jugador'
 #Ingeniebrios

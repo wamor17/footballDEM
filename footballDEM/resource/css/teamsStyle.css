@@ -22,6 +22,7 @@
 
 #correctIns, #incorrectIns, .txtIDTeamShow,
 .txtIDTeamModify, #correctUP, #incorrectUP,
-#correctDel, #incorrectDel, .txtIDTeamDelete{
+#correctDel, #incorrectDel, .txtIDTeamDelete,
+#colorSelectedUpdate{
     display: none;
 }

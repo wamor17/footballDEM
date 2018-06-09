@@ -25,25 +25,45 @@ function colorSelected(color){
 
 function colorSelectedU(color){
     switch(color){
-        case "blanco": document.getElementById("newColorTeam").style.background = "white";
+        case "blanco":
+            document.getElementById("newColorTeam").style.background = "white";
+            document.getElementById("colorSelectedUpdate").value = "white";
         break;
-        case "negro": document.getElementById("newColorTeam").style.background = "black";
+        case "negro":
+            document.getElementById("newColorTeam").style.background = "black";
+            document.getElementById("colorSelectedUpdate").value = "black";
         break;
-        case "rojo": document.getElementById("newColorTeam").style.background = "red";
+        case "rojo":
+            document.getElementById("newColorTeam").style.background = "red";
+            document.getElementById("colorSelectedUpdate").value = "red";
         break;
-        case "naranja": document.getElementById("newColorTeam").style.background = "orange";
+        case "naranja":
+            document.getElementById("newColorTeam").style.background = "orange";
+            document.getElementById("colorSelectedUpdate").value = "orange";
         break;
-        case "rosa": document.getElementById("newColorTeam").style.background = "pink";
+        case "rosa":
+            document.getElementById("newColorTeam").style.background = "pink";
+            document.getElementById("colorSelectedUpdate").value = "pink";
         break;
-        case "verde": document.getElementById("newColorTeam").style.background = "green";
+        case "verde":
+            document.getElementById("newColorTeam").style.background = "green";
+            document.getElementById("colorSelectedUpdate").value = "greeb";
         break;
-        case "azul": document.getElementById("newColorTeam").style.background = "blue";
+        case "azul":
+            document.getElementById("newColorTeam").style.background = "blue";
+            document.getElementById("colorSelectedUpdate").value = "blue";
         break;
-        case "gris": document.getElementById("newColorTeam").style.background = "gray";
+        case "gris":
+            document.getElementById("newColorTeam").style.background = "gray";
+            document.getElementById("colorSelectedUpdate").value = "gray";
         break;
-        case "azul_marino": document.getElementById("newColorTeam").style.background = "darkblue";
+        case "azul_marino":
+            document.getElementById("newColorTeam").style.background = "darkblue";
+            document.getElementById("colorSelectedUpdate").value = "darkblue";
         break;
-        default: document.getElementById("newColorTeam").style.background = "yellow";
+        default:
+            document.getElementById("newColorTeam").style.background = "yellow";
+            document.getElementById("colorSelectedUpdate").value = "yellow";
     }
 }
 
@@ -83,12 +103,11 @@ function insertTeam(){
 function updateTeam(){
     var ID_Team = document.getElementById("IDTeamModalModify").value;
     var newName = document.getElementById("newNameTeam").value;
-    var color = window.getComputedStyle(newColorTeam, null)["backgroundColor"];
-    var newColorU = color.toString();
+    var newColorU = document.getElementById("colorSelectedUpdate").value;
+    var data = {"IDTeam":ID_Team, "NewTeam":newName, "NewColor":newColorU};
 
-    $.post('Controller/teams/updateTeamController.php', {IDTeam: ID_Team, NewTeam: newName, NewColor: newColorU}, function(data) {
+    $.post('Controller/teams/updateTeamController.php', {dataSend: data}, function(data) {
         dataReceive = JSON.parse(data);
-        alert(dataReceive);
 
         if( dataReceive = "correct" ){
             document.getElementById("correctUP").style.display = "block";
@@ -99,6 +118,10 @@ function updateTeam(){
             document.getElementById("incorrectUP").style.display = "block";
         }
     });
+}
+
+function RGB2String(RGBcolor){
+
 }
 
 function deleteTeam(){

@@ -204,6 +204,7 @@
                                             <li id="cYellow" onclick="colorSelectedU('amarillo')"><a href="#"> Amarillo </a></li>
                                         </ul>
                                     </div>
+                                    <input type="text" id="colorSelectedUpdate" class="colorSelectedUpdate form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -211,8 +212,8 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="alert alert-success" id="correctUP"> Registro correcto </div>
-                            <div class="alert alert-danger" id="incorrectUP"> Registro incorrecto </div>
+                            <div class="alert alert-success" id="correctUP"> Actualizaci&oacute;n correcta </div>
+                            <div class="alert alert-danger" id="incorrectUP"> Actualizaci&oacute;n incorrecta </div>
                         </div>
                     </div><br>
                     <div class="panel-footer panelFooterModal">

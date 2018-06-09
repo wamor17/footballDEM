@@ -10,6 +10,6 @@
         $message = "incorrect";
     }
 
-    echo json_encode($message);
+    echo json_encode($IDTeam);
     // Jul-Dic 2018
 ?>

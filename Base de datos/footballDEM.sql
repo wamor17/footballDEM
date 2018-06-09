@@ -40,7 +40,7 @@ CREATE TABLE Equipo(
 CREATE TABLE Jugador(
 	ID_Jugador INT AUTO_INCREMENT NOT NULL,
     ID_Alumno INT NOT NULL,
-    ID_Equipo INT NOT NULL,
+    ID_Equipo INT,
     Posicion VARCHAR(15),
     Goles_Marcados TINYINT,
     
@@ -48,7 +48,7 @@ CREATE TABLE Jugador(
     FOREIGN KEY (ID_Alumno)
 		REFERENCES Alumno(ID_Alumno),
 	FOREIGN KEY (ID_Equipo)
-		REFERENCES Equipo(ID_Equipo)
+		REFERENCES Equipo(ID_Equipo) ON DELETE SET NULL
 ) ENGINE = INNODB;
 
 CREATE TABLE Arbitro(
