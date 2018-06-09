@@ -2,9 +2,9 @@
 USE footballDEM;
 
 #VALORES PARA LA TABLA 'Usuario'
-INSERT INTO Usuario(Usuario, Contraseña, Tipo) VALUES('walter','root','Administrador');
-INSERT INTO Usuario(Usuario, Contraseña, Tipo) VALUES('admin','root','Administrador');
-INSERT INTO Usuario(Usuario, Contraseña, Tipo) VALUES('balta','balta17','Estudiante');
+INSERT INTO Usuario(Usuario, Pass, Tipo) VALUES('walter','root','Administrador');
+INSERT INTO Usuario(Usuario, Pass, Tipo) VALUES('admin','root','Administrador');
+INSERT INTO Usuario(Usuario, Pass, Tipo) VALUES('balta','balta17','Estudiante');
 
 #VALORES PARA LA TABLA 'Alumno'
 INSERT INTO Alumno(Nombre, Apellidos, NUA, Edad, Carrera) VALUES

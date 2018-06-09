@@ -20,14 +20,9 @@
         <div class="col-md-10 panel">
             <h3> Lista de equipos con sus respectivos integrantes </h3>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalInsertTeam'> Agregar nuevo equipo </button>
-                    <button type="button" class="btn btn-default txtRight" style="margin-left: 15px;"> Generar jornadas </button><br><br>
-                </div>
-                <div class="col-md-8">
-                    <div class="alert alert-info alert-dismissible alertSize alertTeams">
-                        Recargue la p&aacute;gina para ver los cambios
-                    </div>                
+                    <button type="button" class="btn btn-default txtRight" style="margin-left: 15px; display: none;"> Generar jornadas </button><br><br>
                 </div>
             </div>
 
@@ -39,6 +34,7 @@
                                 <div class='panel-heading'>
                                     <div class='row'>
                                         <div class='col-md-9 cursorPointer' data-toggle='collapse' data-parent='#accordion' href='#collapse".$num."'>
+                                            <input type='text' class='txtIDTeamShow' id='IDTeam".$num."' value='".$Equipos["ID_Equipo"]."'>
                                             <h4 id='nameTeam".$num."' class='panel-title teamNamePanel'>
                                                 <strong>".$Equipos["Nombre"]."</strong>
                                             </h4>
@@ -123,7 +119,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nombre del equipo: </label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="txtNameTeamModal">
                                 </div>
                             </div>
                         </div>
@@ -152,12 +148,14 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div id="colorCircle" class="colorSelectedTeam"></div>
+                                <div id="colorCircle" class="colorSelectedTeam"></div><br>
+                                <div class="alert alert-success" id="correctIns"> Registro correcto </div>
+                                <div class="alert alert-danger" id="incorrectIns"> Registro incorrecto </div>
                             </div>
                         </div>
                     </div><br>
                     <div class="panel-footer panelFooterModal">
-                        <input type="submit" class="btn btn-primary" id="btnNewTeam" value="Guardar">
+                        <input type="submit" class="btn btn-primary" id="btnNewTeam" value="Guardar" onclick="insertTeam()">
                         <input type="submit" class="btn btn-default" id="btnCancel" value="Cancelar" data-dismiss="modal">
                     </div>
                 </div>
@@ -178,6 +176,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <input id="IDTeamModalModify" class="txtIDTeamModify" type="text" class="form-control">
                                     <label>Nombre del equipo: </label>
                                     <input id="newNameTeam" type="text" class="form-control">
                                 </div>
@@ -211,9 +210,13 @@
                                 <div id="newColorTeam" class="colorSelectedTeam"></div>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="alert alert-success" id="correctUP"> Registro correcto </div>
+                            <div class="alert alert-danger" id="incorrectUP"> Registro incorrecto </div>
+                        </div>
                     </div><br>
                     <div class="panel-footer panelFooterModal">
-                        <input type="submit" class="btn btn-warning" id="btnUpdateTeam" value="Guardar">
+                        <input type="submit" class="btn btn-warning" id="btnUpdateTeam" value="Guardar" onclick="updateTeam()">
                         <input type="submit" class="btn btn-default" id="btnCancel" value="Cancelar" data-dismiss="modal">
                     </div>
                 </div>
@@ -235,13 +238,16 @@
                             <div class="col-md-12">
                                 <img src="resource/images/danger1.png" class="imgDangerDelete">
                                 <div class="form-group">
+                                    <input id="IDTeamModalDelete" class="txtIDTeamDelete" type="text" class="form-control">
                                     <p> ¿Esta seguro que desea sacar al equipo <strong id="nameTeamToDelete"> </strong> del torneo de f&uacute;tbol del DEM Yuriria? </p>
+                                    <div class="alert alert-success" id="correctDel"> Registro correcto </div>
+                                    <div class="alert alert-danger" id="incorrectDel"> Registro incorrecto </div>
                                 </div>
                             </div>
                         </div>
                     </div><br>
                     <div class="panel-footer panelFooterModal">
-                        <input type="submit" class="btn btn-danger" id="btnDeleteTeam" value="Borrar equipo">
+                        <input type="submit" class="btn btn-danger" id="btnDeleteTeam" value="Borrar equipo" onclick="deleteTeam()">
                         <input type="submit" class="btn btn-default" id="btnCancel" value="Cancelar" data-dismiss="modal">
                     </div>
                 </div>
