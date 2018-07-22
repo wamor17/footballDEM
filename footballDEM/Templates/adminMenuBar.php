@@ -2,41 +2,31 @@
 <div class="row content1">
     <div class="col-md-12">
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationWebBar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                        
-                    </button>
-                    <a class="navbar-brand textLogo" href="adminView.php"> Liga DEM Yuriria (Admin) </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="navigationWebBar">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Men&uacute;
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="tournamentsView.php"> Torneos </a></li>
-                                <li><a href="playersAndTeamsView.php"> Equipos </a></li>
-                                <li><a href="studentsManagmentView.php"> Jugadores </a></li>
-                                <li><a href="adminView.php"> Jornadas y resultados </a></li>
+        <div class="navbar-fixed">
+            <nav class="grey darken-4">
+            <div class="row">
+                <div class="col m1"></div>
+                <div class="col m10">
+                    <div class="nav-wrapper">
+                            <a href="adminView.php" class="brand-logo"> <i class="large licon material-icons left">settings</i> Liga DEM Yuriria (Admin) </a>
+                            <ul class="right hide-on-med-and-down">
+                                <li> <a class="waves-effect waves-light dropdown-trigger" href="#!" data-target="ddAdminMenu">
+                                        Men&uacute; de administraci&oacute;n <i class="material-icons left">arrow_drop_down</i> </a> </li>
+                                <li><a href="index.php"> <i class="small material-icons left">lock_outline</i> Cerrar sesi&oacute;n </a></li>
                             </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="Controller/logOutController.php"><!-- <span class="glyphicon glyphicon-log-in"></span> --> Cerrar sesi&oacute;n </a></li>
-                    </ul>
+                        </div>
                     </div>
-
-                <ul class="nav navbar-nav">
-                </ul>
-
+                <div class="col m1"></div>
             </div>
-        </nav>
+            </nav>
+        </div>
 
+        <!-- Estructura del dropdown para el menu principal -->
+        <ul id="ddAdminMenu" class="dropdown-content">
+            <li><a href="tournamentsView.php"> Torneos </a></li>
+            <li><a href="playersAndTeamsView.php"> Equipos </a></li>
+            <li><a href="studentsManagmentView.php"> Jugadores </a></li>
+            <li><a href="adminView.php"> Jornadas y resultados </a></li>
+        </ul>
     </div>
 </div>
