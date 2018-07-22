@@ -50,12 +50,12 @@ function verifyDataUser(){
 
 function selectJornada(numJornada){
     var gamesCards = document.getElementById("gamesResultCard");
-    var jornada = document.getElementById("jornada").innerHTML = "Resultados de la jornada "+numJornada;
+    var jornada = document.getElementById("jornada").innerHTML = "<h3> Resultados de la Jornada "+numJornada+"</h3>";
 
     $.post('Controller/getGamesByJornadas.php', { NumJornada: numJornada }, function(data) {
         dataReceive = JSON.parse(data);
 
-        for( i=0; i<dataReceive.length; i++ ){
+        for( i=0; i<=dataReceive.length; i++ ){
             var team1 = document.getElementById("E1_"+i+"_left").innerHTML = dataReceive[i].Equipo_1;
             var goals = document.getElementById("goles_"+i).innerHTML = dataReceive[i].Goles_E1 +" - "+ dataReceive[i].Goles_E2;
             var team1 = document.getElementById("E2_"+i+"_right").innerHTML = dataReceive[i].Equipo_2;
@@ -67,12 +67,6 @@ function selectJornada(numJornada){
 }
 
 function loadData(){
-//  Cargando los elementos de Materialize que utilizan javascript
-    $(document).ready(function(){
-        $('.dropdown-trigger').dropdown();
-        $('.modal').modal();
-    });
-
 //  CARGANDO AL INICIAR LA PAGINA LA ULTIMA JORNADA JUGADA
     $.post('Controller/loadData.php', { }, function(data) {
         dataReceive = JSON.parse(data);
@@ -80,12 +74,7 @@ function loadData(){
     });
 }
 
-function openModal(){
-    var instance = M.Modal.getInstance( document.getElementById("modal1") );
-    alert(instance)
-    instance.open();
-//    $('#modal1').modal('open');
-}
+
 
 // PROTOTIPO DE UNA PETICION AJAX
 function getData(){

@@ -329,13 +329,7 @@ INSERT INTO Arbitro(ID_Alumno) VALUES(20); #Mosti
 INSERT INTO Arbitro(ID_Alumno) VALUES(46); #Orozco
 
 #VALORES PARA LA TABLA 'Semestre'
-INSERT INTO Semestre(Semestre) VALUES('Ago-Dic 2017');
-INSERT INTO Semestre(Semestre) VALUES('Ago-Dic 2017');
-INSERT INTO Semestre(Semestre) VALUES('Ago-Dic 2017');
-INSERT INTO Semestre(Semestre) VALUES('Ago-Dic 2017');
-INSERT INTO Semestre(Semestre) VALUES('Ago-Dic 2017');
-INSERT INTO Semestre(Semestre) VALUES('Ago-Dic 2017');
-INSERT INTO Semestre(Semestre) VALUES('Ago-Dic 2017');
+INSERT INTO Semestre(Semestre) VALUES('Ene-Jun 2018');
 
 #VALORES PARA LA TABLA 'Jornada'
 INSERT INTO Jornada(ID_Semestre, Num_Jornada, Fecha) VALUES (1, 1, '2017-09-20');
