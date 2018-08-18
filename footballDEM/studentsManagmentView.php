@@ -13,7 +13,7 @@
         include "Templates/adminMenuBar.php";
         
 //        $getStudents = "SELECT Alumno.Nombre AS NameAlumno, Apellidos, Edad, NUA, Carrera, Equipo.Nombre AS NameTeam, Posicion, Jugador.Goles_Marcados FROM Alumno INNER JOIN Jugador ON Jugador.ID_Alumno = Alumno.ID_Alumno INNER JOIN Equipo LIMIT 10;";
-        $getStudents = "SELECT Alumno.Nombre AS NameAlumno, Apellidos, Edad, NUA, Carrera, Equipo.Nombre AS NameTeam, Posicion, Jugador.Goles_Marcados FROM Alumno INNER JOIN Jugador ON Jugador.ID_Alumno = Alumno.ID_Alumno INNER JOIN Equipo LIMIT 3;";
+        $getStudents = "SELECT DISTINCT Alumno.Nombre AS NameAlumno, Apellidos, Edad, NUA, Carrera, Equipo.Nombre AS NameTeam, Posicion, Jugador.Goles_Marcados FROM Alumno INNER JOIN Jugador ON Jugador.ID_Alumno = Alumno.ID_Alumno INNER JOIN Equipo LIMIT 20;";
         $data = $connection->query($getStudents);
     ?>
 

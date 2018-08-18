@@ -56,8 +56,8 @@ function loadDataToModify(num){
     var Date = dateGame.split(",")[0];
     var Hour = dateGame.split(",")[1].split(" ")[1];
 
-    document.getElementById("e1").value = equipo1.textContent;
-    document.getElementById("e2").value = equipo2.textContent;
+    document.getElementById("e1").textContent = equipo1.textContent;
+    document.getElementById("e2").textContent = equipo2.textContent;
 
     var txtG1 = document.getElementById("e1Goals");
     var txtG2 = document.getElementById("e2Goals");
@@ -77,8 +77,8 @@ function loadDataToModify(num){
 }
 
 function ModifyResultGames(){
-    var e1 = document.getElementById("e1").value;
-    var e2 = document.getElementById("e2").value;
+//    var e1 = document.getElementById("e1").value;
+//    var e2 = document.getElementById("e2").value;
     var goals1 = document.getElementById("e1Goals");
     var goals2 = document.getElementById("e2Goals");
     var idGame = document.getElementById("idGameModal").textContent;
@@ -87,7 +87,7 @@ function ModifyResultGames(){
     var HourG = document.getElementById("setHourModal").value;
 
     if( !isNaN(goals1.value) && !isNaN(goals2.value)){
-        $.post('Controller/index/updateResultGames.php', { E1: e1, E2: e2, e1Goals: goals1.value, e2Goals: goals2.value, Date: DateG, Hour: HourG, ID_Game: idGame }, function(data) {
+        $.post('Controller/index/updateResultGames.php', { e1Goals: goals1.value, e2Goals: goals2.value, Date: DateG, Hour: HourG, ID_Game: idGame }, function(data) {
             dataReceived = JSON.parse(data);
     
             if( dataReceive = "Correct" ){
@@ -97,7 +97,7 @@ function ModifyResultGames(){
                 var status = updateGeneralTable();
 
                 if( startus = "Correct" )
-                    M.toast({html: '¡Datos actualizados correctamente!', classes: 'rounded green'});
+                    M.toast({html: '¡Datos actualizados correctamente!', classes: 'rounded green darken-2'});
                 else
                     M.toast({html: '¡Error! No se pudo actualizar la tabla general', classes: 'rounded deep-orange darken-4'});
             }else{

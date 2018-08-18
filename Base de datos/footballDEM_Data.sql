@@ -63,7 +63,7 @@ INSERT INTO Alumno(Nombre, Apellidos, NUA, Edad, Carrera) VALUES
 INSERT INTO Alumno(Nombre, Apellidos, NUA, Edad, Carrera) VALUES
 ('José Francisco', 'González Gallardo', 145699, 23, 'LGE');
 
-#Un equipo no tiene nombre
+#Sin nombre
 INSERT INTO Alumno(Nombre, Apellidos, NUA, Edad, Carrera) VALUES
 ('Juan Pablo', 'Zavala Paramo', 810380, 22, 'ISC');
 INSERT INTO Alumno(Nombre, Apellidos, NUA, Edad, Carrera) VALUES
@@ -208,15 +208,15 @@ INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos)
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
 ('Niupi','Azul',7,7,0,0,0,10,-10,21);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Un equipo no tiene nombre','red',7,2,0,5,0,5,0,6);
+('Sin nombre','red',7,2,0,5,0,5,0,6);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Abejas Sport','orange',7,1,1,5,3,5,-2,5);
+('Abejas sport','orange',7,1,1,5,3,5,-2,5);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
 ('Campesinos','green',7,4,0,3,5,3,2,12);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('Maluma Babys','black',7,1,0,6,0,20,-20,3);
+('Maluma babys','black',7,1,0,6,0,20,-20,3);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
-('El Valler','yellow',7,1,2,4,0,5,0,6);
+('El valler','yellow',7,1,2,4,0,5,0,6);
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES
 ('Dream team','gray',7,4,1,2,5,0,0,13);
 
@@ -372,68 +372,68 @@ INSERT INTO Jornada(ID_Semestre, Num_Jornada, Fecha) VALUES (1, 7, '2017-11-01')
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
 (1, 3, 'Ingeniebrios', 4, 'Niupi', 5, '2017-09-20', '08:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(1, 1, 'Campesinos', 6, 'Maluma Babys', 3, '2017-09-20', '09:00');
+(1, 1, 'Campesinos', 6, 'Maluma babys', 3, '2017-09-20', '09:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(1, 3, 'Un equipo no tiene nombre', 4, 'Abejas Sport', 6, '2017-09-20', '10:00');
+(1, 3, 'Sin nombre', 4, 'Abejas sport', 6, '2017-09-20', '10:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(1, 2, 'Dream team', 6, 'El Valler', 3, '2017-09-20', '11:00');
+(1, 2, 'Dream team', 6, 'El valler', 3, '2017-09-20', '11:00');
 
 #2
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(2, 1, 'Malumas', 4, 'Sin nombre', 4, '2017-09-27', '10:00');
+(2, 1, 'Malumas babys', 4, 'Sin nombre', 4, '2017-09-27', '10:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(2, 1, 'Valler', 6, 'Abejas Sport', 3, '2017-09-27', '11:00');
+(2, 1, 'El valler', 6, 'Abejas sport', 3, '2017-09-27', '11:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(2, 1, 'Campesinos', 4, 'Niupy', 6, '2017-09-27', '12:00');
+(2, 1, 'Campesinos', 4, 'Niupi', 6, '2017-09-27', '12:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
 (2, 1, 'Dream team', 6, 'Ingeniebrios', 3, '2017-09-27', '01:00');
 
 #3
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(3, 1, 'Malumas', 4, 'Sin nombre', 4, '2017-10-04', '10:00');
+(3, 1, 'Malumas babys', 4, 'Sin nombre', 4, '2017-10-04', '10:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(3, 1, 'Valler', 6, 'Abejas Sport', 3, '2017-10-04', '11:00');
+(3, 1, 'El valler', 6, 'Abejas sport', 3, '2017-10-04', '11:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(3, 1, 'Campesinos', 4, 'Niupy', 6, '2017-10-04', '12:00');
+(3, 1, 'Campesinos', 4, 'Niupi', 6, '2017-10-04', '12:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
 (3, 1, 'Dream team', 6, 'Ingeniebrios', 3, '2017-10-04', '01:00');
 
 #4
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(4, 1, 'Malumas', 4, 'Sin nombre', 4, '2017-10-11', '10:00');
+(4, 1, 'Malumas babys', 4, 'Sin nombre', 4, '2017-10-11', '10:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(4, 1, 'Valler', 6, 'Abejas Sport', 3, '2017-10-11', '11:00');
+(4, 1, 'El valler', 6, 'Abejas sport', 3, '2017-10-11', '11:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(4, 1, 'Campesinos', 4, 'Niupy', 6, '2017-10-11', '12:00');
+(4, 1, 'Campesinos', 4, 'Niupi', 6, '2017-10-11', '12:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
 (4, 1, 'Dream team', 6, 'Ingeniebrios', 3, '2017-10-11', '01:00');
 
 #5
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(5, 1, 'Malumas', 4, 'Sin nombre', 4, '2017-10-18', '10:00');
+(5, 1, 'Malumas babys', 4, 'Sin nombre', 4, '2017-10-18', '10:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(5, 1, 'Valler', 6, 'Abejas Sport', 3, '2017-10-18', '11:00');
+(5, 1, 'El valler', 6, 'Abejas sport', 3, '2017-10-18', '11:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(5, 1, 'Campesinos', 4, 'Niupy', 6, '2017-10-18', '12:00');
+(5, 1, 'Campesinos', 4, 'Niupi', 6, '2017-10-18', '12:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
 (5, 1, 'Dream team', 6, 'Ingeniebrios', 3, '2017-10-18', '01:00');
 
 #6
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(6, 1, 'Malumas', 4, 'Sin nombre', 4, '2017-10-25', '10:00');
+(6, 1, 'Malumas babys', 4, 'Sin nombre', 4, '2017-10-25', '10:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(6, 1, 'Valler', 6, 'Abejas Sport', 3, '2017-10-25', '11:00');
+(6, 1, 'El valler', 6, 'Abejas sport', 3, '2017-10-25', '11:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(6, 1, 'Campesinos', 4, 'Niupy', 6, '2017-10-25', '12:00');
+(6, 1, 'Campesinos', 4, 'Niupi', 6, '2017-10-25', '12:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
 (6, 1, 'Dream team', 6, 'Ingeniebrios', 3, '2017-10-25', '01:00');
 
 #7
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(7, 1, 'Malumas', 4, 'Sin nombre', 4, '2017-11-01', '10:00');
+(7, 1, 'Malumas babys', 4, 'Sin nombre', 4, '2017-11-01', '10:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(7, 1, 'Valler', 6, 'Abejas Sport', 3, '2017-11-01', '11:00');
+(7, 1, 'El valler', 6, 'Abejas sport', 3, '2017-11-01', '11:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
-(7, 1, 'Campesinos', 4, 'Niupy', 6, '2017-11-01', '12:00');
+(7, 1, 'Campesinos', 4, 'Niupi', 6, '2017-11-01', '12:00');
 INSERT INTO Partido(ID_Jornada, ID_Arbitro, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora) VALUES
 (7, 1, 'Dream team', 6, 'Ingeniebrios', 3, '2017-11-01', '01:00');
