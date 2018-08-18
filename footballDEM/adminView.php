@@ -19,13 +19,16 @@
     </head>
     <body onload="loadData()">
 
+<!--
         <?php
+/*
             $getChamp = "SELECT *FROM Semestre;";
             $dataChampionship = $connection->query($getChamp);
 
             if( $dataChampionship->num_rows > 0 ){
                 $Semester = $dataChampionship->fetch_assoc();
             }
+*/
         ?>
 
         <br>
@@ -33,12 +36,14 @@
             <div class="col s12 m12 l10 offset-l1">
                 <div class="card grey darken-1">
                     <div class="card-content white-text center-align">
-                        <p class="principalBanner"> Torneo de f&uacute;tbol del semestre <?php echo $Semester["Semestre"] ?> </p>
+                        <p class="principalBanner"> Torneo de f&uacute;tbol del semestre <?php // echo $Semester["Semestre"] ?> </p>
                     </div>
                 </div>
             </div>
         </div>
+-->
 
+        <br>
         <div class="row">
             <div class="col l1 "></div>
             <div class="col s12 m12 l5">
@@ -126,13 +131,16 @@
                                     $npos = 1;
                                     while( $equipo = $data->fetch_assoc() ){
 
-                                        if( $equipo["Diff"] > 0 )
+                                        if( $equipo["Diff"] > 0 ){
                                             $colorDiff = 'green';
-                                        else if( $equipo["Diff"] < 0 )
+                                            $Diff = "+".$equipo["Diff"];
+                                        }else if( $equipo["Diff"] < 0 ){
                                             $colorDiff = 'red';
-                                        else
+                                            $Diff = $equipo["Diff"];
+                                        }else{
                                             $colorDiff = 'black';
-
+                                            $Diff = $equipo["Diff"];
+                                        }
 
                                         echo "<tr>";
                                             echo "<td class='eS'>". $npos.". ". $equipo["Nombre"]."</td>"; 
@@ -142,7 +150,7 @@
                                             echo "<td class='center-align eS'>". $equipo["PP"] ."</td>";
                                             echo "<td class='center-align eS'>". $equipo["GA"] ."</td>";
                                             echo "<td class='center-align eS'>". $equipo["GR"] ."</td>";
-                                            echo "<td style='color: $colorDiff' class='center-align eS'>". $equipo["Diff"] ."</td>";
+                                            echo "<td style='color: $colorDiff' class='center-align eS'>". $Diff ."</td>";
                                             echo "<td class='center-align eS'><strong>". $equipo["Puntos"] ."<strong></td>";
                                         echo "</tr>";
                                         $npos++;
@@ -176,7 +184,7 @@
                     </div>
 
                 </div>
-
+<!--
                 <div class="card hoverable">
                     <div class="card-content noPaddingCard">
                         <div class="card-title center-align tgTitleSize"> Tabla de goleo </div>
@@ -188,8 +196,8 @@
                                 <th class="center-align hs"> Equipo </th>
                                 <th class="center-align hs"> Goles </th>
                             </tr>
-
-                            <?php
+/*
+                            <?php /*
                                 $query = "SELECT Alumno.Nombre AS NameAlumno, Apellidos, Equipo.Nombre AS NameTeam, Jugador.Goles_Marcados FROM Alumno INNER JOIN Jugador ON Jugador.ID_Alumno = Alumno.ID_Alumno INNER JOIN Equipo ON Jugador.ID_Equipo = Equipo.ID_Equipo ORDER BY Goles_Marcados DESC LIMIT 5;";
                                 $data = $connection->query($query);
 
@@ -205,7 +213,9 @@
                                     }
                                 }
                                 $connection->close();
+                                */
                             ?>
+*/
                         </table>
                     </div>
                 </div>
@@ -214,8 +224,8 @@
             <div class="col l1"></div>
         </div>
         <br><br>
-
-    <div id="modalModifyGame" class="modal modal-fixed-footer bottom-sheet">
+-->
+    <div id="modalModifyGame" class="modal modal-fixed-footer">
         <div class="modal-content modalContModifyGame">
 
             <div class="row rowGameModify">
@@ -223,8 +233,8 @@
                 <p id='idJornadaModal'></p>
 
                 <div class="col s12 m4">
-                    <input type="text" id="e1" class="form-control team1Modal center-align">
-<!--                    <div class="team1Modal center-align" id="e1"></div> -->
+<!--                    <input type="text" id="e1" class="form-control team1Modal center-align" disabled>-->
+                    <div class="team1Modal center-align" id="e1"></div>
                 </div>
 
                 <div class="col s12 m4">
@@ -238,24 +248,25 @@
                 </div>
 
                 <div class="col s12 m4">
-                    <input type="text" id="e2" class="form-control team2Modal center-align">
+<!--                    <input type="text" id="e2" class="form-control team2Modal center-align" disabled> -->
+                    <div class="team2Modal center-align" id="e2"></div>
                 </div>
             </div>
 
             <div class="row rowDateModify">
-                <div class="col m4"></div>
+                <div class="col m3"></div>
 
-                <div class="col s12 m2 input-field">
+                <div class="col s12 m3 input-field">
                     <input type="text" id="setDateModal" class="center-align" placeholder="Fecha">
                     <label for="setDateModal"> Fecha del partido </label>
                 </div>
 
-                <div class="col s12 m2 input-field">
+                <div class="col s12 m3 input-field">
                     <input type="text" id="setHourModal" class="center-align" placeholder="Hora">
                     <label for="setHourModal"> Hora </label>
                 </div>
 
-                <div class="col m4"></div>
+                <div class="col m3"></div>
             </div>
         </div>
 
