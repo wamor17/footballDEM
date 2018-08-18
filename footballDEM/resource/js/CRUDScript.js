@@ -1,4 +1,5 @@
 
+/*
 function loadDataToModal(num){
     var equipo1 = document.getElementById("E1_"+num+"_left");
     var equipo2 = document.getElementById("E2_"+num+"_right");
@@ -10,4 +11,4 @@ function loadDataToModal(num){
     document.getElementById("e1Goals").value = goals[0];
     document.getElementById("e2Goals").value = goals[2];
 }
-
+*/

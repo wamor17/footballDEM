@@ -13,6 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title> Administraci&oacute;n del torneo </title>
         <?php include "Templates/metaInformation.php" ?>
     </head>
@@ -27,6 +28,7 @@
             }
         ?>
 
+        <br>
         <div class="row">
             <div class="col s12 m12 l10 offset-l1">
                 <div class="card grey darken-1">
@@ -36,7 +38,6 @@
                 </div>
             </div>
         </div>
-        <br>
 
         <div class="row">
             <div class="col l1 "></div>
@@ -74,24 +75,23 @@
                         if( $Partidos->num_rows > 0 ){
                             $num = 0;
                             while( $Resultados = $Partidos->fetch_assoc() ){
-                                echo "  <div class='card hoverable cardSize modal-trigger cardEdit' onclick='loadDataToModal($num)' href='#modalModifyGame'>
+                                echo "  <div class='card hoverable cardSize'>
+                                            <div class='card-image'>
+                                                <a class='btn-floating btnFloatingEdit btn-small white waves-effect waves-orange halfway-fab modal-trigger' href='#modalModifyGame' onclick='loadDataToModify($num)'><i class='material-icons iconEditGames'>edit</i></a>
+                                            </div>
 
                                             <div class='card-content'>
-                                                <div class='row rowCardOptions'>
-                                                    <div class='col s12 m12'>
-                                                        <span class='card-title'><a class='modal-trigger editColor' onclick='loadDataToModal($num)' href='#modalModifyGame'><i class='material-icons sizeEdit right'>edit</i></a></span>
-                                                    </div>
-                                                </div>
-
                                                 <div class='row rowCardResultGame'>
-                                                    <div class='col s5 m5 center-align sizeTeams' id='E1_".$num."_left'> </div>
-                                                    <div class='col s2 m2 center-align border-lr sizeGoals' id='goles_".$num."'> </div>
-                                                    <div class='col s5 m5 center-align sizeTeams' id='E2_".$num."_right'> </div>
+                                                    <a id='idGame_".$num."'>  </a>
+                                                    <a id='jornada_".$num."'>  </a>
+                                                    <div class='col s4 m4 center-align sizeTeams' id='E1_".$num."_left'> Equipo 1 </div>
+                                                    <div class='col s4 m4 center-align border-lr sizeGoals' id='goles_".$num."'> - - </div>
+                                                    <div class='col s4 m4 center-align sizeTeams' id='E2_".$num."_right'> Equipo 2 </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class='card-action grey lighten-5'>
-                                                <div class='center-align marginHour' id='hourGame".$num."'> Hora</div>
+                                                <div class='center-align marginHour' id='dateGame".$num."'> Fecha </div>
                                             </div>
                                         </div>";
                                 $num++;
@@ -107,15 +107,15 @@
                         <div class="divider"></div>
                         <table class="table striped">
                             <tr>
-                                <th class="center-align"> EQUIPO </th>
-                                <th class="center-align"> PJ </th>
-                                <th class="center-align"> G </th>
-                                <th class="center-align"> E </th>
-                                <th class="center-align"> P </th>
-                                <th class="center-align"> GF </th>
-                                <th class="center-align"> GE </th>
-                                <th class="center-align"> DIF </th>
-                                <th class="center-align"> PTS </th>
+                                <th class="center-align hs"> EQUIPO </th>
+                                <th class="center-align hs"> PJ </th>
+                                <th class="center-align hs"> G </th>
+                                <th class="center-align hs"> E </th>
+                                <th class="center-align hs"> P </th>
+                                <th class="center-align hs"> GF </th>
+                                <th class="center-align hs"> GE </th>
+                                <th class="center-align hs"> DIF </th>
+                                <th class="center-align hs"> PTS </th>
                             </tr>
 
                             <?php
@@ -125,16 +125,25 @@
                                 if( $data->num_rows > 0 ){
                                     $npos = 1;
                                     while( $equipo = $data->fetch_assoc() ){
+
+                                        if( $equipo["Diff"] > 0 )
+                                            $colorDiff = 'green';
+                                        else if( $equipo["Diff"] < 0 )
+                                            $colorDiff = 'red';
+                                        else
+                                            $colorDiff = 'black';
+
+
                                         echo "<tr>";
-                                            echo "<td>". $npos.". ". $equipo["Nombre"]."</td>"; 
-                                            echo "<td class='center-align'>". $equipo["PJ"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["PG"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["PE"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["PP"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["GA"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["GR"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["Diff"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["Puntos"] ."</td>";
+                                            echo "<td class='eS'>". $npos.". ". $equipo["Nombre"]."</td>"; 
+                                            echo "<td class='center-align eS'>". $equipo["PJ"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["PG"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["PE"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["PP"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["GA"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["GR"] ."</td>";
+                                            echo "<td style='color: $colorDiff' class='center-align eS'>". $equipo["Diff"] ."</td>";
+                                            echo "<td class='center-align eS'><strong>". $equipo["Puntos"] ."<strong></td>";
                                         echo "</tr>";
                                         $npos++;
                                     }
@@ -175,9 +184,9 @@
                         
                         <table class="table striped">
                             <tr>
-                                <th class="center-align"> Nombre </th>
-                                <th class="center-align"> Equipo </th>
-                                <th class="center-align"> Goles </th>
+                                <th class="center-align hs"> Nombre </th>
+                                <th class="center-align hs"> Equipo </th>
+                                <th class="center-align hs"> Goles </th>
                             </tr>
 
                             <?php
@@ -188,9 +197,9 @@
                                     $npos = 1;
                                     while( $goleador = $data->fetch_assoc() ){
                                         echo "<tr>";
-                                            echo "<td class='left-align'>". $goleador["NameAlumno"]." ". $goleador["Apellidos"]."</td>";
-                                            echo "<td class='left-align'>". $goleador["NameTeam"] ."</td>";
-                                            echo "<td class='center-align'>". $goleador["Goles_Marcados"] ."</td>";
+                                            echo "<td class='left-align eS'>". $goleador["NameAlumno"]." ". $goleador["Apellidos"]."</td>";
+                                            echo "<td class='left-align eS'>". $goleador["NameTeam"] ."</td>";
+                                            echo "<td class='center-align eS'>". $goleador["Goles_Marcados"] ."</td>";
                                         echo "</tr>";
                                         $npos++;
                                     }
@@ -207,35 +216,64 @@
         <br><br>
 
     <div id="modalModifyGame" class="modal modal-fixed-footer bottom-sheet">
-        <div class="modal-content">
+        <div class="modal-content modalContModifyGame">
 
-            <br><br>
-            <div class="row">
-                <div class="col s4 m4">
-                    <div class="team1Modal center-align" id="e1"></div>
+            <div class="row rowGameModify">
+                <p id='idGameModal'></p>
+                <p id='idJornadaModal'></p>
+
+                <div class="col s12 m4">
+                    <input type="text" id="e1" class="form-control team1Modal center-align">
+<!--                    <div class="team1Modal center-align" id="e1"></div> -->
                 </div>
 
-                <div class="col s4 m4">
-                    <div class="col m5">
-                        <input type="text" id="e1Goals" class="form-control">
+                <div class="col s12 m4">
+                    <div class="col s5 m5">
+                        <input type="text" id="e1Goals" class="form-control e1GoalsModal">
                     </div>
-                    <div class="col m2">__</div>
-                    <div class="col m5">
-                        <input type="text" id="e2Goals" class="form-control">
+                    <div class="col s2 m2 center-align">___</div>
+                    <div class="col s5 m5">
+                        <input type="text" id="e2Goals" class="form-control e1GoalsModal">
                     </div>
                 </div>
 
-                <div class="col s4 m4">
-                    <div class="team2Modal center-align" id="e2"></div>
+                <div class="col s12 m4">
+                    <input type="text" id="e2" class="form-control team2Modal center-align">
                 </div>
+            </div>
+
+            <div class="row rowDateModify">
+                <div class="col m4"></div>
+
+                <div class="col s12 m2 input-field">
+                    <input type="text" id="setDateModal" class="center-align" placeholder="Fecha">
+                    <label for="setDateModal"> Fecha del partido </label>
+                </div>
+
+                <div class="col s12 m2 input-field">
+                    <input type="text" id="setHourModal" class="center-align" placeholder="Hora">
+                    <label for="setHourModal"> Hora </label>
+                </div>
+
+                <div class="col m4"></div>
             </div>
         </div>
 
         <div class="modal-footer">
-            <a class="waves-effect waves-light btn grey lighten-1 center"> <i class="material-icons left">check</i> Aplicar cambios </a>
+            <a class="waves-effect waves-light btn grey lighten-1 center" onclick="ModifyResultGames()"> <i class="material-icons left">check</i> Aplicar cambios </a>
             <a class="modal-close waves-effect waves-light btn grey lighten-1"> <i class="material-icons left">close</i> Cancelar </a>
         </div>
     </div>
+
+    <script>
+            $(document).ready(function(){
+                $('.dropdown-trigger').dropdown();
+                $('.modal').modal();
+                $('.sidenav').sidenav();
+                $('.datepicker').datepicker();
+                $('.timepicker').timepicker();
+            });
+    </script>
 
     </body>
 </html>
