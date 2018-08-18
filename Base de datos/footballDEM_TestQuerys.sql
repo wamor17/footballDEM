@@ -15,6 +15,8 @@ DELETE FROM Equipo WHERE ID_Equipo = 1;
 UPDATE Equipo SET Equipo.ID_Equipo = 0 WHERE ID_Equipo = 1;
 UPDATE Jugador SET Jugador.ID_Equipo = 0 WHERE ID_Equipo = 1;
 
+UPDATE Equipo SET PJ = 0, PG = 0, PE = 0, PP = 0, GA = 0, GR = 0, Diff = 0, Puntos = 0 WHERE ID_Equipo = 1;
+
 INSERT INTO Equipo(Nombre, Color_Uniforme, PJ, PG, PE, PP, GA, GR, Diff, Puntos) VALUES('INTER','BEIGE',0,0,0,0,0,0,0,0);
 UPDATE Equipo SET Nombre = 'Ingeniebrios', Color_Uniforme = 'rgb(100,100,0)' WHERE ID_Equipo = 1;
 DELETE FROM Semestre WHERE ID_Semestre = 4;
@@ -42,3 +44,5 @@ SELECT Num_Jornada, Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora FROM Parti
 
 SELECT Equipo_1, Goles_E1, Equipo_2, Goles_E2, Dia, Hora FROM Partido INNER JOIN Jornada ON Partido.ID_Jornada = Jornada.ID_Jornada WHERE Jornada.ID_Jornada = 2;
 SELECT *FROM Jornada ORDER BY Num_Jornada DESC LIMIT 1;
+
+SELECT * FROM Jornada ORDER BY Num_Jornada DESC;

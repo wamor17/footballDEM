@@ -26,3 +26,19 @@
 #colorSelectedUpdate{
     display: none;
 }
+
+.cardTeam{
+    width: calc(48% - 5px) !important;
+    margin: 5px !important;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.cardSection{
+    margin-top: 10px;
+}
+
+.collapsible{
+    margin-top: 2% !important;
+}
+

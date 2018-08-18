@@ -3,3 +3,15 @@
 #txtIDModalModify, .txtID{
     display: none;
 }
+
+.alignButtons{
+    float: left;
+}
+
+.marginBottom{
+    margin-bottom: 0px !important;
+}
+
+.iconColor{
+    color: #424242 !important;
+}

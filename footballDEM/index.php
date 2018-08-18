@@ -12,32 +12,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Torneo del futbol del DEM Yuriria</title>
         <?php include "Templates/metaInformation.php" ?>
     </head>
-    <body onload="loadData()">
-        
-        <div class="mainBody">
-             <div class="navbar-fixed">
-                <nav class="blue-grey darken-4">
-                <div class="row">
-                    <div class="col m1"></div>
-                    <div class="col m10">
-                        <div class="nav-wrapper">
-                            <a href="index.php" class="brand-logo"> <i class="large licon material-icons left">school</i> Liga DEM Yuriria </a>
-                            <ul class="right hide-on-med-and-down">
-                                <a class="waves-effect waves-light modal-trigger" href="#modalLogIn">
-                                    Iniciar sesi&oacute;n <i class="material-icons left">lock_open</i>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col m1"></div>
-                </div>
-                </nav>
-            </div>
+    <body onload="loadData()">    
 
-            <?php
+        <div class="navbar-fixed">
+            <nav class="blue-grey darken-4">
+            <div class="row">
+                <div class="col m1"></div>
+                <div class="col s12 m10">
+                    <div class="nav-wrapper">
+                        <a href="index.php" class="brand-logo"> <i class="large licon material-icons left">school</i> Liga DEM Yuriria </a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"> <i class="material-icons"> menu </i></a>
+                        <ul id="nav-mobile" class="right">
+                            <li><a class="waves-effect waves-light modal-trigger  hide-on-med-and-down" href="#modalLogIn">
+                                Iniciar sesi&oacute;n <i class="material-icons left">lock_open</i></a>
+                            </li>
+                            <li><a class="waves-effect waves-light modal-trigger  hide-on-med-and-down">
+                                Acerca de <i class="material-icons left">info</i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col m1"></div>
+            </div>
+            </nav>
+        </div>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a class="waves-effect waves-light modal-trigger" href="#modalLogIn"> Iniciar sesi&oacute;n <i class="material-icons left">lock_open</i> </a></li>
+            <li><a class="waves-effect waves-light modal-trigger"> Acerca de <i class="material-icons left">info</i></a></li>
+        </ul>
+
+        	<?php
                 $getChamp = "SELECT *FROM Semestre;";
                 $dataChampionship = $connection->query($getChamp);
 
@@ -46,7 +55,7 @@
                 }
             ?>
 
-            <br>
+            
             <div class="row">
                 <div class="col s12 m12 l10 offset-l1">
                     <div class="card blue-grey darken-1">
@@ -56,7 +65,6 @@
                     </div>
                 </div>
             </div>
-            <br>
 
             <div class="row">
             <div class="col l1 "></div>
@@ -94,21 +102,20 @@
                         if( $Partidos->num_rows > 0 ){
                             $num = 0;
                             while( $Resultados = $Partidos->fetch_assoc() ){
-                                echo "  <div class='card hoverable cardSize'>
-
-                                            <div class='card-content'>
-                                                <div class='row rowCardResultGame'>
-                                                    <div class='col s5 m5 center-align sizeTeams' id='E1_".$num."_left'> </div>
-                                                    <div class='col s2 m2 center-align border-lr sizeGoals' id='goles_".$num."'> </div>
-                                                    <div class='col s5 m5 center-align sizeTeams' id='E2_".$num."_right'> </div>
-                                                </div>
+                              echo" <div class='card hoverable cardSize'>
+                                        <div class='card-content'>
+                                            <div class='row rowCardResultGame'>
+                                                <a id='idGame_".$num."'>  </a>
+                                                <a id='jornada_".$num."'>  </a>
+                                                <div class='col s4 m4 center-align sizeTeams' id='E1_".$num."_left'> Equipo 1 </div>
+                                                <div class='col s4 m4 center-align border-lr sizeGoals' id='goles_".$num."'> - - </div>
+                                                <div class='col s4 m4 center-align sizeTeams' id='E2_".$num."_right'> Equipo 2 </div>
                                             </div>
-                                            
-                                            <div class='card-action grey lighten-5'>
-                                                <div class='center-align marginHour' id='hourGame".$num."'> Hora</div>
-                                            </div>
-
-                                        </div>";
+                                        </div>                                        
+                                        <div class='card-action grey lighten-5'>
+                                            <div class='center-align marginHour' id='dateGame".$num."'> Fecha </div>
+                                        </div>
+                                    </div>";
                                 $num++;
                             }
                         }
@@ -122,15 +129,15 @@
                         <div class="divider"></div>
                         <table class="table striped">
                             <tr>
-                                <th class="center-align"> EQUIPO </th>
-                                <th class="center-align"> PJ </th>
-                                <th class="center-align"> G </th>
-                                <th class="center-align"> E </th>
-                                <th class="center-align"> P </th>
-                                <th class="center-align"> GF </th>
-                                <th class="center-align"> GE </th>
-                                <th class="center-align"> DIF </th>
-                                <th class="center-align"> PTS </th>
+                                <th class="center-align hs"> EQUIPO </th>
+                                <th class="center-align hs"> PJ </th>
+                                <th class="center-align hs"> G </th>
+                                <th class="center-align hs"> E </th>
+                                <th class="center-align hs"> P </th>
+                                <th class="center-align hs"> GF </th>
+                                <th class="center-align hs"> GE </th>
+                                <th class="center-align hs"> DIF </th>
+                                <th class="center-align hs"> PTS </th>
                             </tr>
 
                             <?php
@@ -140,16 +147,24 @@
                                 if( $data->num_rows > 0 ){
                                     $npos = 1;
                                     while( $equipo = $data->fetch_assoc() ){
+										
+										if( $equipo["Diff"] > 0 )
+                                            $colorDiff = 'green';
+                                        else if( $equipo["Diff"] < 0 )
+                                            $colorDiff = 'red';
+                                        else
+                                            $colorDiff = 'black';
+
                                         echo "<tr>";
-                                            echo "<td>". $npos.". ". $equipo["Nombre"]."</td>"; 
-                                            echo "<td class='center-align'>". $equipo["PJ"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["PG"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["PE"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["PP"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["GA"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["GR"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["Diff"] ."</td>";
-                                            echo "<td class='center-align'>". $equipo["Puntos"] ."</td>";
+                                            echo "<td class='eS'>". $npos.". ". $equipo["Nombre"]."</td>"; 
+                                            echo "<td class='center-align eS'>". $equipo["PJ"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["PG"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["PE"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["PP"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["GA"] ."</td>";
+                                            echo "<td class='center-align eS'>". $equipo["GR"] ."</td>";
+                                            echo "<td style='color: ".$colorDiff."' class='center-align eS'>". $equipo["Diff"] ."</td>";
+                                            echo "<td class='center-align eS'><strong>". $equipo["Puntos"] ."</strong></td>";
                                         echo "</tr>";
                                         $npos++;
                                     }
@@ -190,9 +205,9 @@
                         
                         <table class="table striped">
                             <tr>
-                                <th class="center-align"> Nombre </th>
-                                <th class="center-align"> Equipo </th>
-                                <th class="center-align"> Goles </th>
+                                <th class="center-align hs"> Nombre </th>
+                                <th class="center-align hs"> Equipo </th>
+                                <th class="center-align hs"> Goles </th>
                             </tr>
 
                             <?php
@@ -203,9 +218,9 @@
                                     $npos = 1;
                                     while( $goleador = $data->fetch_assoc() ){
                                         echo "<tr>";
-                                            echo "<td class='left-align'>". $goleador["NameAlumno"]." ". $goleador["Apellidos"]."</td>";
-                                            echo "<td class='left-align'>". $goleador["NameTeam"] ."</td>";
-                                            echo "<td class='center-align'>". $goleador["Goles_Marcados"] ."</td>";
+                                            echo "<td class='left-align eS'>". $goleador["NameAlumno"]." ". $goleador["Apellidos"]."</td>";
+                                            echo "<td class='left-align eS'>". $goleador["NameTeam"] ."</td>";
+                                            echo "<td class='center-align eS'>". $goleador["Goles_Marcados"] ."</td>";
                                         echo "</tr>";
                                         $npos++;
                                     }
@@ -219,11 +234,10 @@
             </div>
             <div class="col l1"></div>
         </div>
-        <br><br>
+        <br>
 
      <!-- MODAL QUE MUESTRA EL FORMULARIO DE LOGIN PARA LOS DIFERENTES USUARIOS -->
-        <div id="modalLogIn" class="modal modal-fixed-footer">
-
+        <div id="modalLogIn" class="modal">
             <div class="modal-content">
                 <h4> Inicio de sesi&oacute;n </h4><br>
                 <div class="input-field">
@@ -249,19 +263,22 @@
                 <a class="waves-effect waves-light btn blue-grey lighten-1" onclick="verifyDataUser()"> <i class="material-icons left">check</i> Ingresar </a>
                 <a class="modal-close waves-effect waves-light btn blue-grey lighten-1"> <i class="material-icons left">close</i> Salir </a>
             </div>
-
-        </div>
-    </div>
-
         </div>
 
+        <footer class="page-footer blue-grey lighten-1">
+            <div class="container">
+                © 2014 Copyright
+            <a class="grey-text text-lighten-4 right" href="#!"> github.com/wamor17 </a>
+            </div>
+        </footer>
 
-    <script>
-        $(document).ready(function(){
-            $('.dropdown-trigger').dropdown();
-            $('.modal').modal();
-        });
-    </script>
+        <script>
+            $(document).ready(function(){
+                $('.dropdown-trigger').dropdown();
+                $('.modal').modal();
+                $('.sidenav').sidenav();
+            });
+        </script>
 
     </body>
 </html>
